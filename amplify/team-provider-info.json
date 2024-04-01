@@ -1,15 +1,30 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-makeauction-dev-134117-authRole",
-      "UnauthRoleArn": "arn:aws:iam::975050154484:role/amplify-makeauction-dev-134117-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::975050154484:role/amplify-makeauction-dev-134117-authRole",
+      "AuthRoleName": "amplify-makeauction-dev-d43f7-authRole",
+      "UnauthRoleArn": "arn:aws:iam::975050154484:role/amplify-makeauction-dev-d43f7-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::975050154484:role/amplify-makeauction-dev-d43f7-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-makeauction-dev-134117-deployment",
-      "UnauthRoleName": "amplify-makeauction-dev-134117-unauthRole",
-      "StackName": "amplify-makeauction-dev-134117",
-      "StackId": "arn:aws:cloudformation:us-east-1:975050154484:stack/amplify-makeauction-dev-134117/7c1d6c30-ed00-11ee-bc7f-0affcab6c00b",
-      "AmplifyAppId": "d10byuarlpvklt"
+      "DeploymentBucketName": "amplify-makeauction-dev-d43f7-deployment",
+      "UnauthRoleName": "amplify-makeauction-dev-d43f7-unauthRole",
+      "StackName": "amplify-makeauction-dev-d43f7",
+      "StackId": "arn:aws:cloudformation:us-east-1:975050154484:stack/amplify-makeauction-dev-d43f7/0bd41ef0-efa4-11ee-9ef8-0ebad847b2cf",
+      "AmplifyAppId": "d3o7qziwnx3nao",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-makeauction-dev-d43f7-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "auth": {
+        "makeauction": {}
+      },
+      "function": {
+        "makeauctionPreSignup": {
+          "deploymentBucketName": "amplify-makeauction-dev-d43f7-deployment",
+          "s3Key": "amplify-builds/makeauctionPreSignup-3257494c786267437555-build.zip"
+        }
+      },
+      "api": {
+        "makeauction": {}
+      }
     }
   }
 }

@@ -1,38 +1,56 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
+  font-family: 'Arial', sans-serif; /* Replace with the actual font used */
+  color: #fff; /* Adjust the color to match the design */
+  background-color: #6200EE; /* Replace with the actual background color used */
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.logo {
+  font-size: 1.5rem; /* Adjust the size to match the design */
+  color: #ff4081; /* Adjust the logo color */
 }
+
+.content {
+  text-align: center;
+  max-width: 1200px; /* Adjust width according to design */
+}
+
+.title {
+  font-size: 2.5rem; /* Adjust the size to match the design */
+  margin-bottom: 2rem;
+}
+
+.phone-image {
+  width: 300px; /* Adjust the size to match the design */
+  margin-bottom: 2rem;
+}
+
+.btn-primary {
+  background-color: #BB86FC; /* Adjust the button color to match the design */
+  color: #fff;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 20px; /* Adjust the border-radius to match the design */
+  outline: none;
+}
+
+.btn-primary:hover {
+  background-color: #3700B3; /* Adjust for hover state */
+}
+
+/* Media queries for responsive adjustments might be needed */

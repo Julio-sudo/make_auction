@@ -1,0 +1,23 @@
+{
+  "trigger": true,
+  "modules": [
+    "custom"
+  ],
+  "parentResource": "makeauction",
+  "functionName": "makeauctionPreSignup",
+  "resourceName": "makeauctionPreSignup",
+  "parentStack": "auth",
+  "triggerEnvs": "[]",
+  "triggerDir": "C:\\snapshot\\amplify-cli\\build\\node_modules\\@aws-amplify\\amplify-category-auth\\provider-utils\\awscloudformation\\triggers\\PreSignup",
+  "triggerTemplate": "PreSignup.json.ejs",
+  "triggerEventPath": "PreSignup.event.json",
+  "roleName": "makeauctionPreSignup",
+  "skipEdit": true,
+  "permissions": {
+    "api": {
+      "makeauction": [
+        "Mutation"
+      ]
+    }
+  }
+}
