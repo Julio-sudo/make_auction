@@ -1,10 +1,4 @@
-/* Amplify Params - DO NOT EDIT
-	API_MAKEAUCTION_GRAPHQLAPIENDPOINTOUTPUT
-	API_MAKEAUCTION_GRAPHQLAPIIDOUTPUT
-	API_MAKEAUCTION_GRAPHQLAPIKEYOUTPUT
-	ENV
-	REGION
-Amplify Params - DO NOT EDIT *//**
+/**
  * @fileoverview
  *
  * This CloudFormation Trigger creates a handler which awaits the other handlers

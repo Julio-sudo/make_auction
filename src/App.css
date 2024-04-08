@@ -1,56 +1,83 @@
-.container {
-  font-family: 'Arial', sans-serif; /* Replace with the actual font used */
-  color: #fff; /* Adjust the color to match the design */
-  background-color: #6200EE; /* Replace with the actual background color used */
-  height: 100vh;
+.App {
+  text-align: center;
+  background-color: #101728;
+ 
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+  color: white;
+}
+
+.Titre {
+ text-indent: 25px;
+ font-weight: bold;
+ font-size: 5vw;
+ line-height: 20%;
+}
+
+.logo{
+ width: 5%;
+}
+
+.App-body {
+  display: flex;
+  justify-content: space-around;
+}
+
+main div {
+  display: inline;
+}
+
+.Text-et-boutons{
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
+
+}
+
+.Body-image {
+  width: 25em;
+  height: 25em;
+  position: relative;
+  left: 100px;
+  display: inline;
+  border-radius: 15px;
+  
+}
+
+.Body-text h2 {
+  color: #fffdfd;
+  font-size: 50px;
+  text-align: left;
+  display: inline;
+  word-spacing: 10px;
+}
+
+.Button-group {
+  display: flex;
   justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
 }
 
-.header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 1rem;
-  box-sizing: border-box;
-}
-
-.logo {
-  font-size: 1.5rem; /* Adjust the size to match the design */
-  color: #ff4081; /* Adjust the logo color */
-}
-
-.content {
-  text-align: center;
-  max-width: 1200px; /* Adjust width according to design */
-}
-
-.title {
-  font-size: 2.5rem; /* Adjust the size to match the design */
-  margin-bottom: 2rem;
-}
-
-.phone-image {
-  width: 300px; /* Adjust the size to match the design */
-  margin-bottom: 2rem;
-}
-
-.btn-primary {
-  background-color: #BB86FC; /* Adjust the button color to match the design */
-  color: #fff;
-  border: none;
-  padding: 1rem 2rem;
-  font-size: 1rem;
+.Button {
+  background-color: #9b27a5;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
   cursor: pointer;
-  border-radius: 20px; /* Adjust the border-radius to match the design */
-  outline: none;
+  transition: background-color 0.3s ease;
 }
 
-.btn-primary:hover {
-  background-color: #3700B3; /* Adjust for hover state */
-}
 
-/* Media queries for responsive adjustments might be needed */
+
+.Button:hover {
+  background-color: darkblue;
+}

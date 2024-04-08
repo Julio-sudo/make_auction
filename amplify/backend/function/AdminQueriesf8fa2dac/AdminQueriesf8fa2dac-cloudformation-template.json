@@ -2,57 +2,12 @@
   "AWSTemplateFormatVersion": "2010-09-09",
   "Description": "{\"createdOn\":\"Windows\",\"createdBy\":\"Amplify\",\"createdWith\":\"12.10.3\",\"stackType\":\"function-Lambda\",\"metadata\":{}}",
   "Parameters": {
-    "DOMAINBLACKLIST": {
-      "Type": "String",
-      "Default": ""
-    },
-    "DOMAINWHITELIST": {
-      "Type": "String",
-      "Default": ""
-    },
-    "modules": {
-      "Type": "String",
-      "Default": "",
-      "Description": "Comma-delimited list of modules to be executed by a lambda trigger. Sent to resource as an env variable."
-    },
-    "resourceName": {
-      "Type": "String",
-      "Default": ""
-    },
-    "trigger": {
-      "Type": "String",
-      "Default": "true"
-    },
-    "functionName": {
-      "Type": "String",
-      "Default": ""
-    },
-    "roleName": {
-      "Type": "String",
-      "Default": ""
-    },
-    "parentResource": {
-      "Type": "String",
-      "Default": ""
-    },
-    "parentStack": {
-      "Type": "String",
-      "Default": ""
-    },
     "env": {
       "Type": "String"
     },
-    "apimakeauctionGraphQLAPIIdOutput": {
+    "authmakeauctionauthUserPoolId": {
       "Type": "String",
-      "Default": "apimakeauctionGraphQLAPIIdOutput"
-    },
-    "apimakeauctionGraphQLAPIEndpointOutput": {
-      "Type": "String",
-      "Default": "apimakeauctionGraphQLAPIEndpointOutput"
-    },
-    "apimakeauctionGraphQLAPIKeyOutput": {
-      "Type": "String",
-      "Default": "apimakeauctionGraphQLAPIKeyOutput"
+      "Default": "authmakeauctionauthUserPoolId"
     },
     "deploymentBucketName": {
       "Type": "String"
@@ -83,12 +38,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "makeauctionPreSignup",
+            "AdminQueriesf8fa2dac",
             {
               "Fn::Join": [
                 "",
                 [
-                  "makeauctionPreSignup",
+                  "AdminQueriesf8fa2dac",
                   "-",
                   {
                     "Ref": "env"
@@ -103,26 +58,9 @@
             "ENV": {
               "Ref": "env"
             },
-            "MODULES": {
-              "Ref": "modules"
-            },
-            "REGION": {
-              "Ref": "AWS::Region"
-            },
-            "DOMAINWHITELIST": {
-              "Ref": "DOMAINWHITELIST"
-            },
-            "DOMAINBLACKLIST": {
-              "Ref": "DOMAINBLACKLIST"
-            },
-            "API_MAKEAUCTION_GRAPHQLAPIIDOUTPUT": {
-              "Ref": "apimakeauctionGraphQLAPIIdOutput"
-            },
-            "API_MAKEAUCTION_GRAPHQLAPIENDPOINTOUTPUT": {
-              "Ref": "apimakeauctionGraphQLAPIEndpointOutput"
-            },
-            "API_MAKEAUCTION_GRAPHQLAPIKEYOUTPUT": {
-              "Ref": "apimakeauctionGraphQLAPIKeyOutput"
+            "GROUP": "Admin",
+            "USERPOOL": {
+              "Ref": "authmakeauctionauthUserPoolId"
             }
           }
         },
@@ -150,12 +88,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "makeauctionPreSignup",
+            "AdminQueriesf8fa2dacLambdaRole",
             {
               "Fn::Join": [
                 "",
                 [
-                  "makeauctionPreSignup",
+                  "AdminQueriesf8fa2dacLambdaRole",
                   "-",
                   {
                     "Ref": "env"
@@ -221,53 +159,41 @@
                   }
                 ]
               }
-            }
-          ]
-        }
-      }
-    },
-    "AmplifyResourcesPolicy": {
-      "DependsOn": [
-        "LambdaExecutionRole"
-      ],
-      "Type": "AWS::IAM::Policy",
-      "Properties": {
-        "PolicyName": "amplify-lambda-execution-policy",
-        "Roles": [
-          {
-            "Ref": "LambdaExecutionRole"
-          }
-        ],
-        "PolicyDocument": {
-          "Version": "2012-10-17",
-          "Statement": [
+            },
             {
               "Effect": "Allow",
               "Action": [
-                "appsync:GraphQL"
+                "cognito-idp:ListUsersInGroup",
+                "cognito-idp:AdminUserGlobalSignOut",
+                "cognito-idp:AdminEnableUser",
+                "cognito-idp:AdminDisableUser",
+                "cognito-idp:AdminRemoveUserFromGroup",
+                "cognito-idp:AdminAddUserToGroup",
+                "cognito-idp:AdminListGroupsForUser",
+                "cognito-idp:AdminGetUser",
+                "cognito-idp:AdminConfirmSignUp",
+                "cognito-idp:ListUsers",
+                "cognito-idp:ListGroups"
               ],
-              "Resource": [
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "arn:aws:appsync:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
-                      ":",
-                      {
-                        "Ref": "AWS::AccountId"
-                      },
-                      ":apis/",
-                      {
-                        "Ref": "apimakeauctionGraphQLAPIIdOutput"
-                      },
-                      "/types/Mutation/*"
-                    ]
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:aws:cognito-idp:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":userpool/",
+                    {
+                      "Ref": "authmakeauctionauthUserPoolId"
+                    }
                   ]
-                }
-              ]
+                ]
+              }
             }
           ]
         }
@@ -288,6 +214,11 @@
         ]
       }
     },
+    "Region": {
+      "Value": {
+        "Ref": "AWS::Region"
+      }
+    },
     "LambdaExecutionRole": {
       "Value": {
         "Ref": "LambdaExecutionRole"
@@ -299,11 +230,6 @@
           "LambdaExecutionRole",
           "Arn"
         ]
-      }
-    },
-    "Region": {
-      "Value": {
-        "Ref": "AWS::Region"
       }
     }
   }

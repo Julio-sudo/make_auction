@@ -1,28 +1,34 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-makeauction-dev-d43f7-authRole",
-      "UnauthRoleArn": "arn:aws:iam::975050154484:role/amplify-makeauction-dev-d43f7-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::975050154484:role/amplify-makeauction-dev-d43f7-authRole",
+      "AuthRoleName": "amplify-makeauction-dev-ab6d6-authRole",
+      "UnauthRoleArn": "arn:aws:iam::975050154484:role/amplify-makeauction-dev-ab6d6-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::975050154484:role/amplify-makeauction-dev-ab6d6-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-makeauction-dev-d43f7-deployment",
-      "UnauthRoleName": "amplify-makeauction-dev-d43f7-unauthRole",
-      "StackName": "amplify-makeauction-dev-d43f7",
-      "StackId": "arn:aws:cloudformation:us-east-1:975050154484:stack/amplify-makeauction-dev-d43f7/0bd41ef0-efa4-11ee-9ef8-0ebad847b2cf",
-      "AmplifyAppId": "d3o7qziwnx3nao",
-      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-makeauction-dev-d43f7-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+      "DeploymentBucketName": "amplify-makeauction-dev-ab6d6-deployment",
+      "UnauthRoleName": "amplify-makeauction-dev-ab6d6-unauthRole",
+      "StackName": "amplify-makeauction-dev-ab6d6",
+      "StackId": "arn:aws:cloudformation:us-east-1:975050154484:stack/amplify-makeauction-dev-ab6d6/b8b08830-f4bc-11ee-b171-0afff8a3d797",
+      "AmplifyAppId": "d3giru2u05gh9w",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-makeauction-dev-ab6d6-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
     },
     "categories": {
       "auth": {
-        "makeauction": {}
+        "makeauctionauth": {},
+        "userPoolGroups": {}
       },
       "function": {
-        "makeauctionPreSignup": {
-          "deploymentBucketName": "amplify-makeauction-dev-d43f7-deployment",
-          "s3Key": "amplify-builds/makeauctionPreSignup-3257494c786267437555-build.zip"
+        "makeauctionauthPostConfirmation": {
+          "deploymentBucketName": "amplify-makeauction-dev-ab6d6-deployment",
+          "s3Key": "amplify-builds/makeauctionauthPostConfirmation-6a67714c366c32684e34-build.zip"
+        },
+        "AdminQueriesf8fa2dac": {
+          "deploymentBucketName": "amplify-makeauction-dev-ab6d6-deployment",
+          "s3Key": "amplify-builds/AdminQueriesf8fa2dac-69617946734a4d717057-build.zip"
         }
       },
       "api": {
+        "AdminQueries": {},
         "makeauction": {}
       }
     }
